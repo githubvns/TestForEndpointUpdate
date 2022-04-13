@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Enpoint Instance Mapping" max_length="40" name="u_enpoint_instance_mapping" type="collection">
+        <element label="NBN SandPick Environment" max_length="500" name="u_nbn_sandpick_environment" type="string"/>
+        <element label="NBN Training Environment" max_length="500" name="u_nbn_training_environment" type="string"/>
+        <element label="Rest Message" max_length="32" name="u_rest_message" reference="sys_rest_message" type="reference"/>
+        <index name="index">
+            <element name="u_rest_message"/>
+        </index>
+    </element>
+</database>

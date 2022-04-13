@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_fix">
+    <sys_script_fix action="INSERT_OR_UPDATE">
+        <before>false</before>
+        <description>Created to update Rest messages based on instance value after GitHub migration</description>
+        <name>Update Rest Messages - GitHub</name>
+        <record_for_rollback>false</record_for_rollback>
+        <script><![CDATA[var instanceName = gs.getProperty('instance_name');
+var restRec=new GlideRecord('sys_rest_message');
+while(restRec.next()){
+	var restData=new GlideRecord('u_enpoint_instance_mapping');
+	restData.addQuery('u_rest_message',restRec);
+	restData.query();
+	if(restData.next()){
+		if(instanceName=='nbnnetsandpit'){
+		restRec.rest_endpoint=restData.u_nbn_sandpick_environment ;
+		restRec.update();
+	}
+}
+}
+]]></script>
+        <sys_class_name>sys_script_fix</sys_class_name>
+        <sys_created_by>utkarshsingh</sys_created_by>
+        <sys_created_on>2022-04-12 11:29:01</sys_created_on>
+        <sys_id>77396e711b3e8d107301dca7b04bcb9f</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Update Rest Messages - GitHub</sys_name>
+        <sys_package display_value="NBN-CICD Endpoint Validation -Global" source="6b4585e91b364d107301dca7b04bcb47">6b4585e91b364d107301dca7b04bcb47</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NBN-CICD Endpoint Validation -Global">6b4585e91b364d107301dca7b04bcb47</sys_scope>
+        <sys_update_name>sys_script_fix_77396e711b3e8d107301dca7b04bcb9f</sys_update_name>
+        <sys_updated_by>utkarshsingh</sys_updated_by>
+        <sys_updated_on>2022-04-13 05:41:31</sys_updated_on>
+        <unloadable>false</unloadable>
+    </sys_script_fix>
+</record_update>
