@@ -18,8 +18,9 @@ jobs:
 
       - name: ServiceNow CI/CD Apply Changes
         uses: ServiceNow/sncicd-apply-changes@1.0.0
-        environment : m1
-        env:
+        environment :
+          name : m1
+          URL : https://nbnnettraining.service-now.com
           nowUsername: ${{ secrets.SN_USERNAME }}
           nowPassword: ${{ secrets.SN_PASSWORD }}
           nowSourceInstance: ${{ secrets.SN_DEV_INSTANCE }}
