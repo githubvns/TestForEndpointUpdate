@@ -1,7 +1,7 @@
 name: ServiceNow GitHub Actions Demo
 
 on:
-  pull_request:
+  pull_request: 
   push:
 
 jobs:
