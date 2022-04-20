@@ -4,17 +4,27 @@
         <description>Created to update Rest messages based on instance value after GitHub migration</description>
         <name>Update Rest Messages - GitHub</name>
         <record_for_rollback>false</record_for_rollback>
-        <script><![CDATA[var instanceName = gs.getProperty('instance_name');
+        <script><![CDATA[gs.log("11102363 Fix script line 1");
+var instanceName = gs.getProperty('instance_name');
 var restRec=new GlideRecord('sys_rest_message');
+restRec.query();
 while(restRec.next()){
+	gs.log("11102363 Fix script line 5");
 	var restData=new GlideRecord('u_enpoint_instance_mapping');
-	restData.addQuery('u_rest_message',restRec);
+	restData.addQuery('u_rest_message',restRec.sys_id);
 	restData.query();
 	if(restData.next()){
+		gs.log("11102363 Fix script line 11");
 		if(instanceName=='nbnnetsandpit'){
+			gs.log("11102363 Fix script line 13");
 		restRec.rest_endpoint=restData.u_nbn_sandpick_environment ;
+		}
+		if(instanceName=='nbnnettraining'){
+			gs.log("11102363 Fix script line 17");
+		restRec.rest_endpoint=restData.u_nbn_training_environment ;
+		}
 		restRec.update();
-	}
+	
 }
 }
 ]]></script>
@@ -22,14 +32,14 @@ while(restRec.next()){
         <sys_created_by>utkarshsingh</sys_created_by>
         <sys_created_on>2022-04-12 11:29:01</sys_created_on>
         <sys_id>77396e711b3e8d107301dca7b04bcb9f</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name>Update Rest Messages - GitHub</sys_name>
         <sys_package display_value="NBN-CICD Endpoint Validation -Global" source="6b4585e91b364d107301dca7b04bcb47">6b4585e91b364d107301dca7b04bcb47</sys_package>
         <sys_policy/>
         <sys_scope display_value="NBN-CICD Endpoint Validation -Global">6b4585e91b364d107301dca7b04bcb47</sys_scope>
         <sys_update_name>sys_script_fix_77396e711b3e8d107301dca7b04bcb9f</sys_update_name>
         <sys_updated_by>utkarshsingh</sys_updated_by>
-        <sys_updated_on>2022-04-13 05:41:31</sys_updated_on>
+        <sys_updated_on>2022-04-20 04:50:12</sys_updated_on>
         <unloadable>false</unloadable>
     </sys_script_fix>
 </record_update>
