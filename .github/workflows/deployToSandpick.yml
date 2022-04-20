@@ -129,7 +129,7 @@ jobs:
           #Default: false
           #autoUpgradeBaseApp: true
         env:
-          nowUsername: ${{ secrets.SN_USERNAME }}
-          nowPassword: ${{ secrets.SN_PASSWORD }}
-          nowInstallInstance: ${{ secrets.SN_PROD_INSTANCE }}
+          snowUsername: ${{ secrets.SN_USERNAME }}
+          snowPassword: ${{ secrets.SN_PASSWORD }}
+          snowInstallInstance: ${{ secrets.SN_PROD_INSTANCE }}
           appSysID: ${{ secrets.SN_APP_SYSID }}
