@@ -3,7 +3,7 @@ name: ServiceNow GitHub Actions Demo
 on:
   pull_request:  
   push: 
-
+ 
 jobs:
   build: 
     #Purpose of this job is to Apply Remote Changes for the branch triggering 
