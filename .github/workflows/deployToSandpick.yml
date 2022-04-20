@@ -5,7 +5,7 @@ on:
   push: 
 
 jobs:
-  build:
+  build: 
     #Purpose of this job is to Apply Remote Changes for the branch triggering 
     #the pipeline build to the Dev instance, then publish the application to 
     #app repo using the template versioning format. 
